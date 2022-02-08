@@ -22,7 +22,7 @@ const Spaces: React.FC = () => {
   const columns = [
     {
       title: 'Tên space',
-      dataIndex: 'name',
+      dataIndex: 'displayName',
       key: 'id',
       
       render: (text: string) => <a>{text}</a>,

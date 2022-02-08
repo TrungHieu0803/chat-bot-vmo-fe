@@ -1,4 +1,6 @@
-﻿export default [
+﻿import component from "@/locales/bn-BD/component";
+
+export default [
   {
     path: '/user',
     layout: false,
@@ -19,38 +21,39 @@
     ],
   },
   {
-    path: '/spaces',
+    path: '/all-spaces',
     name: 'Spaces',
-    icon: 'smile',
-    component: './Spaces',
-  },
-  {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
-    access: 'canAdmin',
-    component: './Admin',
+    icon: 'dashboard',
     routes: [
       {
-        path: '/admin/sub-page',
-        name: 'sub-page',
-        icon: 'smile',
-        component: './Spaces',
+        path: '/dashboard',
+        redirect: '/my-space',
       },
       {
-        component: './404',
+        name: 'Tất cả spaces',
+        icon: 'smile',
+        path: '/all-spaces',
+        component: './space/spaces',
+      },
+      {
+        name: 'Space của tôi',
+        icon: 'smile',
+        path: '/my-space',
+        component: './space/my-space',
       },
     ],
   },
   {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './TableList',
+    path: '/my-space',
+    component: './space/my-space',
+  },
+  {
+    path: '/space/detail/:spaceId',
+    component: './space/space-detail'
   },
   {
     path: '/',
-    redirect: '/spaces',
+    redirect: '/all-spaces',
   },
   {
     component: './404',

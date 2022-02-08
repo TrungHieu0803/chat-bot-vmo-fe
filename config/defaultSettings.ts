@@ -12,9 +12,9 @@ const Settings: LayoutSettings & {
   fixedHeader: false,
   fixSiderbar: true,
   colorWeak: false,
-  title: 'Ant Design Pro',
+  title: 'Chatbot VMO',
   pwa: false,
-  logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+  logo: 'https://git.vmo.dev/uploads/-/system/appearance/header_logo/1/VMO_trang.png',
   iconfontUrl: '',
 };
 

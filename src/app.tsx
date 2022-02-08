@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { currentUser as queryCurrentUser } from './services/apis/api';
 import { BookOutlined, LinkOutlined } from '@ant-design/icons';
 import defaultSettings from '../config/defaultSettings';
-import { userInfo } from './services/apis/userApis';
+import { memberInfo } from './services/apis/memberApis';
 const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
 
@@ -28,7 +28,7 @@ export async function getInitialState(): Promise<{
 }> {
   const fetchUserInfo = async () => {
     try {
-      const msg = await userInfo();
+      const msg = await memberInfo();
       return msg.data;
     } catch (error) {
       history.push(loginPath);
