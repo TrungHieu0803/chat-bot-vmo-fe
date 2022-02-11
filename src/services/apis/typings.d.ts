@@ -67,7 +67,7 @@ declare namespace API {
     password?: string;
     autoLogin?: boolean;
     type?: string;
-    
+
   };
 
   type ErrorResponse = {
@@ -100,4 +100,52 @@ declare namespace API {
     description?: string;
     type?: NoticeIconItemType;
   };
+
+  type SpaceDetail = {
+    id?: number;
+    displayName?: string;
+    name?: string;
+    owner?: {
+      id?: number,
+      email?: string;
+      name?: string;
+      displayName?: string;
+      imageUrl?: string;
+      role?: string;
+    };
+    admin: number;
+    member: number;
+
+  }
+
+  type MemberInfo = [
+    {
+      id?: number,
+      email?: string;
+      name?: string;
+      displayName?: string;
+      imageUrl?: string;
+      role?: string;
+    }
+  ]
+
+  type UpdateRole = {
+    spaceId: number;
+    memberId: number;
+    role: string;
+  }
+  type Notifications = {
+    spaceId: number;
+    notifications:[
+      {
+        id: number,
+        name: string,
+        isEnable: boolean,
+      }
+    ]
+  }
+  type UpdateNotificationStatus = {
+    id: number;
+    isEnable: boolean;
+  }
 }

@@ -41,7 +41,6 @@ export default function MySpace() {
     }
 
     useEffect(() => {
-        console.log(currentPage)
         const callApiNoneSearch = async () => {
             const res = await getSpace(currentPage);
             setTotalItems(res.data.total);

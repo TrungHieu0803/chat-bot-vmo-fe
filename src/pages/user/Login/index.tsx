@@ -6,7 +6,7 @@ import {
   UserOutlined,
   WeiboCircleOutlined,
 } from '@ant-design/icons';
-import { Alert, message, Tabs } from 'antd';
+import { Alert, message, Popover, Tabs } from 'antd';
 import React, { useState } from 'react';
 import { ProFormCaptcha, ProFormCheckbox, ProFormText, LoginForm } from '@ant-design/pro-form';
 import { useIntl, history, FormattedMessage, SelectLang, useModel } from 'umi';
@@ -91,6 +91,7 @@ const Login: React.FC = () => {
 
           {type === 'account' && (
             <>
+              {/* <Popover content="asd"></Popover> */}
               <GoogleLogin
                 clientId="629928954849-ur0g50hirbt5o79j8kq8p8ci5f1qgb8a.apps.googleusercontent.com"
                 buttonText="Login"

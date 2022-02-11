@@ -48,7 +48,6 @@ const Spaces: React.FC = () => {
   }
 
   useEffect(() => {
-    console.log(currentPage)
     const callApiNoneSearch = async () => {
       const res = await getSpace(currentPage);
       setTotalItems(res.data.total);
