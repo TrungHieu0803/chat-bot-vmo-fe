@@ -70,6 +70,8 @@
     "react-dom": "^17.0.0",
     "react-google-login": "^5.2.2",
     "react-helmet-async": "^1.2.0",
+    "react-hook-form": "^7.27.0",
+    "react-infinite-scroll-component": "^6.1.0",
     "umi": "^3.5.0"
   },
   "devDependencies": {
@@ -111,8 +113,6 @@
   },
   "engines": {
     "node": ">=10.0.0"
-  },
-  "gitHooks": {
-    "commit-msg": "fabric verify-commit"
   }
+
 }

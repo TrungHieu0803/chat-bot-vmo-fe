@@ -47,14 +47,14 @@ const Login: React.FC = () => {
   };
 
   const responseGoogle = async (response: any) => {
-    console.log(response)
+
     try {
       const msg = await login(response.profileObj);
-      console.log(msg)
+
       if (msg.accessToken !== '') {
         const defaultLoginSuccessMessage = intl.formatMessage({
           id: 'pages.login.success',
-          defaultMessage: '',
+          defaultMessage: 'Login success!!',
         });
         message.success(defaultLoginSuccessMessage);
         await fetchUserInfo();
@@ -68,7 +68,7 @@ const Login: React.FC = () => {
     } catch (error) {
       const defaultLoginFailureMessage = intl.formatMessage({
         id: 'pages.login.failure',
-        defaultMessage: '登录失败，请重试！',
+        defaultMessage: 'Login failure!!',
       });
       message.error(defaultLoginFailureMessage);
     }
@@ -83,24 +83,23 @@ const Login: React.FC = () => {
         <LoginForm
           logo={<img alt="logo" src="https://coollogo.net/wp-content/uploads/2021/03/VMO-logo.svg" />}
           title="Chat bot"
-          subTitle={intl.formatMessage({ id: 'pages.layouts.userLayout.title' })}
+          subTitle={intl.formatMessage({ id: 'VMO' })}
           initialValues={{
             autoLogin: true,
           }}
-        >
-
-          {type === 'account' && (
-            <>
-              {/* <Popover content="asd"></Popover> */}
-              <GoogleLogin
-                clientId="629928954849-ur0g50hirbt5o79j8kq8p8ci5f1qgb8a.apps.googleusercontent.com"
-                buttonText="Login"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={'single_host_origin'}
-              />
-            </>
-          )}
+          submitter={{
+            render: (props, dom) =>
+              <>
+                <GoogleLogin className={styles.loginBtn}
+                  clientId={API_URL_GOOGLE_CLIENT_ID}
+                  buttonText="Login"
+                  onSuccess={responseGoogle}
+                  onFailure={responseGoogle}
+                  cookiePolicy={'single_host_origin'}
+                />
+              </>
+          }}
+        >      
         </LoginForm>
       </div>
       <Footer />

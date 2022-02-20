@@ -2,7 +2,7 @@ import styles from './MySpace.less';
 import { PageContainer } from '@ant-design/pro-layout';
 import { Button, Card, Input, Table } from 'antd';
 import { FC, useEffect, useState } from 'react';
-import { getSpace, searchByName } from '@/services/apis/spaceApis';
+import { getSpaces, searchByName } from '@/services/apis/spaceApis';
 
 
 export default function MySpace() {
@@ -30,7 +30,7 @@ export default function MySpace() {
             title: '',
             dataIndex: 'id',
             key: 'id',
-            render: (text: string) => <a href={`space/detail/${text}`}><Button type="primary">Chi tiết</Button></a>
+            render: (text: string) => <a href={`space/${text}/detail`}><Button type="primary">Chi tiết</Button></a>
         },
 
     ];
@@ -42,7 +42,7 @@ export default function MySpace() {
 
     useEffect(() => {
         const callApiNoneSearch = async () => {
-            const res = await getSpace(currentPage);
+            const res = await getSpaces(currentPage);
             setTotalItems(res.data.total);
             setData(res.data.data);
         }
@@ -68,7 +68,11 @@ export default function MySpace() {
         setSearch(value);
     }
     return (
-        <PageContainer>
+        <PageContainer
+        header={{
+            title: `Space của tôi`,
+        }}
+        >
             <Card>
                 <Search
                     placeholder="Tìm kiếm space"

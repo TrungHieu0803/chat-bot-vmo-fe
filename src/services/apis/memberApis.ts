@@ -17,11 +17,16 @@ export const memberInfoBySpaceIdAndRole = async (spaceId: number, role: string, 
 }
 
 export const searchMemberInSpace = async (spaceId: number, role: string, currentPage: number, name: string) => {
-    const url = `member-in-space/${spaceId}/member-info/search?role=${role}&page=${currentPage}&limit=7&mn=${name}`;
+    const url = `member-in-space/${spaceId}/member-info/search/r?role=${role}&page=${currentPage}&limit=7&mn=${name}`;
     return await axiosClient.get(url);
 }
 
-export const updateRole = async (data: API.UpdateRole ) => {
-    const url =`member-in-space/update-role`
+export const searchMemberByDisplayName = async (spaceId: number, displayName: string) => {
+    const url = `member-in-space/${spaceId}/member-info/search?mn=${displayName}`;
+    return await axiosClient.get(url);
+}
+
+export const updateRole = async (data: API.UpdateRole) => {
+    const url = `member-in-space/update-role`
     return await axiosClient.put(url, data);
 }

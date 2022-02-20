@@ -42,6 +42,7 @@ export default function Member({ role, spaceId }: any) {
     }, [currentPage]);
     const onSearch = async (value: string, e: any) => {
         const res = await searchMemberInSpace(spaceId, role, currentPage, value);
+        console.log(res)
         setMembers(res.data.data);
         setTotal(res.data.total);
         setSearch(value);

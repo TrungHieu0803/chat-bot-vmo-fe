@@ -136,7 +136,7 @@ declare namespace API {
   }
   type Notifications = {
     spaceId: number;
-    notifications:[
+    notifications: [
       {
         id: number,
         name: string,
@@ -148,4 +148,35 @@ declare namespace API {
     id: number;
     isEnable: boolean;
   }
+
+  type NormalNotification = {
+    id?: number;
+    name?: string;
+    content?: string;
+    tags?: MemberInfo[];
+    dayOfWeek: [];
+    minute?: string;
+    hour?: string;
+    dayOfMonth?: string;
+    month?: string;
+    year?: string;
+    threadId?: string;
+    spaceId?: number;
+    createdAt?: Date;
+  }
+
+  type UpdateNormalNotification = {
+    id: number;
+    updateData: {
+      name?: string,
+      content?: string,
+      threadId?: string,
+      sendAtMinute?: string,
+      sendAtHour?: string,
+      sendAtDayOfWeek?: string,
+      sendAtMonths?: string,
+      createdAt?: Date
+    }
+  }
+
 }

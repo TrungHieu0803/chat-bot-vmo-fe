@@ -1,4 +1,4 @@
-﻿import component from "@/locales/bn-BD/component";
+﻿
 
 export default [
   {
@@ -21,7 +21,7 @@ export default [
     ],
   },
   {
-    path: '/all-spaces',
+    path: '/my-space',
     name: 'Spaces',
     icon: 'dashboard',
     routes: [
@@ -29,12 +29,12 @@ export default [
         path: '/dashboard',
         redirect: '/my-space',
       },
-      {
-        name: 'Tất cả spaces',
-        icon: 'smile',
-        path: '/all-spaces',
-        component: './space/spaces',
-      },
+      // {
+      //   name: 'Tất cả spaces',
+      //   icon: 'smile',
+      //   path: '/all-spaces',
+      //   component: './space/spaces',
+      // },
       {
         name: 'Space của tôi',
         icon: 'smile',
@@ -44,18 +44,15 @@ export default [
     ],
   },
   {
-    path: '/my-space',
-    component: './space/my-space',
-  },
-  {
-    path: '/space/detail/:spaceId',
+    path: '/space/:spaceId/detail',
     component: './space/space-detail'
   },
   {
     path: '/',
-    redirect: '/all-spaces',
+    redirect: '/my-space',
   },
   {
+    path:'/404',
     component: './404',
   },
 ];

@@ -47,54 +47,56 @@ const HeaderSearch: React.FC<HeaderSearchProps> = (props) => {
     [styles.show]: searchMode,
   });
   return (
-    <div
-      className={classNames(className, styles.headerSearch)}
-      onClick={() => {
-        setSearchMode(true);
-        if (searchMode && inputRef.current) {
-          inputRef.current.focus();
-        }
-      }}
-      onTransitionEnd={({ propertyName }) => {
-        if (propertyName === 'width' && !searchMode) {
-          if (onVisibleChange) {
-            onVisibleChange(searchMode);
-          }
-        }
-      }}
-    >
-      <SearchOutlined
-        key="Icon"
-        style={{
-          cursor: 'pointer',
-        }}
-      />
-      <AutoComplete
-        key="AutoComplete"
-        className={inputClass}
-        value={value}
-        options={restProps.options}
-        onChange={setValue}
-      >
-        <Input
-          size="small"
-          ref={inputRef}
-          defaultValue={defaultValue}
-          aria-label={placeholder}
-          placeholder={placeholder}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              if (restProps.onSearch) {
-                restProps.onSearch(value);
-              }
-            }
-          }}
-          onBlur={() => {
-            setSearchMode(false);
-          }}
-        />
-      </AutoComplete>
-    </div>
+    // <div
+    //   className={classNames(className, styles.headerSearch)}
+    //   onClick={() => {
+    //     setSearchMode(true);
+    //     if (searchMode && inputRef.current) {
+    //       inputRef.current.focus();
+    //     }
+    //   }}
+    //   onTransitionEnd={({ propertyName }) => {
+    //     if (propertyName === 'width' && !searchMode) {
+    //       if (onVisibleChange) {
+    //         onVisibleChange(searchMode);
+    //       }
+    //     }
+    //   }}
+    // >
+    //   <SearchOutlined
+    //     key="Icon"
+    //     style={{
+    //       cursor: 'pointer',
+    //     }}
+    //   />
+    //   <AutoComplete
+    //     key="AutoComplete"
+    //     className={inputClass}
+    //     value={value}
+    //     options={restProps.options}
+    //     onChange={setValue}
+    //   >
+    //     <Input
+    //       size="small"
+    //       ref={inputRef}
+    //       defaultValue={defaultValue}
+    //       aria-label={placeholder}
+    //       placeholder={placeholder}
+    //       onKeyDown={(e) => {
+    //         if (e.key === 'Enter') {
+    //           if (restProps.onSearch) {
+    //             restProps.onSearch(value);
+    //           }
+    //         }
+    //       }}
+    //       onBlur={() => {
+    //         setSearchMode(false);
+    //       }}
+    //     />
+    //   </AutoComplete>
+    // </div>
+    <>
+    </>
   );
 };
 
